@@ -1,59 +1,32 @@
-# BadwalletWeb
+# BadWallet Web Dashboard - Client Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Ce projet constitue le Front-End (Single Page Application) de l'application de portefeuille électronique **BadWallet**, développé avec **Angular 16+**. Il consomme les endpoints de l'API REST Spring Boot (`http://localhost:8080`).
 
-## Development server
+## 🚀 Fonctionnalités implémentées
 
-To start a local development server, run:
+### 1. Espace Agent de Guichet
+- **Listing paginé** des portefeuilles (consomme `GET /api/wallets`).
+- **Création / Inscription** de compte via un formulaire réactif validé.
+- **Recherche de client** par numéro de téléphone.
+- **Opérations de guichet** : Formulaires de Dépôt et Retrait d'argent en temps réel.
 
-```bash
-ng serve
-```
+### 2. Espace Client Final
+- **Dashboard réactif** : Affichage du solde mis à jour instantanément sans recharger la page grâce aux **Angular Signals**.
+- **Transfert d'argent** inter-comptes avec formulaire réactif.
+- **Paiement de factures multiples** : Sélection de plusieurs factures par cases à cocher et paiement groupé en un clic.
+- **Historique** des transactions filtrable.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Concepts techniques Angular utilisés
+- **Architecture Standalone Components** (pas de NgModules pour plus de modernité).
+- **State Management** : Utilisation des `Signals` Angular 16 pour la gestion d'état réactive du solde.
+- **Reactive Forms** avec validations poussées.
+- **Pipe personnalisé** (`XofPipe`) pour le formatage monétaire automatique (ex: `50 000 XOF`).
+- **HttpClient** interconnecté avec le backend Java Spring Boot.
 
-## Code scaffolding
+## 💻 Installation et Lancement
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. S'assurer que le backend Spring Boot est démarré sur le port `8080`.
+2. Cloner ce dépôt.
+3. Exécuter `npm install` pour installer les dépendances.
+4. Lancer l'application avec `ng serve`.
+5. Ouvrir `http://localhost:4200` dans le navigateur.
